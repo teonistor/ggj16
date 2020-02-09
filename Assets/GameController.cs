@@ -62,6 +62,14 @@ public class GameController : MonoBehaviour {
         if (stage == 0) objectives.text = "Objectives\n-Find the key\n-Complete the ritual";
         if (stage == 1) objectives.text = "Objectives\n-Go to the church\n-Complete the ritual ";
         if (stage == 2) objectives.text = "Objectives\n-Complete the ritual ";
-        if (stage == 666) objectives.text = "RITUAL\nCOMPLETED";
+        if (stage == 666) {
+            objectives.text = "RITUAL\nCOMPLETED";
+            StartCoroutine(waitAndQuit(3f));
+        }
+    }
+
+    private IEnumerator waitAndQuit (float t) {
+        yield return new WaitForSeconds(t);
+        Application.Quit();
     }
 }
